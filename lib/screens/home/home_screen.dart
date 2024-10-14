@@ -1,7 +1,9 @@
 import 'package:ecommm/constants.dart';
+import 'package:ecommm/models/product.dart';
 import 'package:ecommm/screens/home/widgets/category.dart';
 import 'package:ecommm/screens/home/widgets/home_app_bar.dart';
 import 'package:ecommm/screens/home/widgets/image_slider.dart';
+import 'package:ecommm/screens/home/widgets/product_card.dart';
 import 'package:ecommm/screens/home/widgets/search_bard.dart';
 import 'package:flutter/material.dart';
 
@@ -65,11 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               //Shopping Items
               GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
-                      itemCount: ,
+                  itemCount: all.length,
                   itemBuilder: (context, index) {
-                    return;
+                    return ProductCard(product: all[index]);
                   })
             ],
           ),
