@@ -12,25 +12,33 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentSlider = 0;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: MkasColor.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               // Custom Appbar
-              CustumAppBar(),
-              SizedBox(height: 20),
+              const CustumAppBar(),
+              const SizedBox(height: 20),
               //search bar
-              MkSearchBar(),
-              SizedBox(height: 20),
+              const MkSearchBar(),
+              const SizedBox(height: 20),
               //Slider
-              ImageSlider(),
+              ImageSlider(
+                currentSlide: currentSlider,
+                onchange: (value) {
+                  setState(() {
+                    currentSlider = value;
+                  });
+                },
+              ),
             ],
           ),
         ),

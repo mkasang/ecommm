@@ -1,7 +1,11 @@
+import 'package:ecommm/constants.dart';
 import 'package:flutter/material.dart';
 
 class ImageSlider extends StatelessWidget {
-  const ImageSlider({super.key});
+  final Function(int) onchange;
+  final int currentSlide;
+  const ImageSlider(
+      {super.key, required this.onchange, required this.currentSlide});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +18,7 @@ class ImageSlider extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: PageView(
               scrollDirection: Axis.horizontal,
+              onPageChanged: onchange,
               allowImplicitScrolling: true,
               physics: const ClampingScrollPhysics(),
               children: [
@@ -22,7 +27,7 @@ class ImageSlider extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Image.asset(
-                  "images/images1.png",
+                  "images/image1.png",
                   fit: BoxFit.cover,
                 ),
                 Image.asset(
@@ -32,7 +37,30 @@ class ImageSlider extends StatelessWidget {
               ],
             ),
           ),
-        )
+        ),
+        Positioned.fill(
+            bottom: 10,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  5,
+                  (index) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: currentSlide == index ? 15 : 8,
+                    height: 8,
+                    margin: const EdgeInsets.only(right: 3),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(18),
+                        color: currentSlide == index
+                            ? MkasColor.primaryColor
+                            : Colors.transparent,
+                        border: Border.all(color: MkasColor.primaryColor)),
+                  ),
+                ),
+              ),
+            ))
       ],
     );
   }
