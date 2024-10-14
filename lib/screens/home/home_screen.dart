@@ -1,4 +1,5 @@
 import 'package:ecommm/constants.dart';
+import 'package:ecommm/screens/home/widgets/category.dart';
 import 'package:ecommm/screens/home/widgets/home_app_bar.dart';
 import 'package:ecommm/screens/home/widgets/image_slider.dart';
 import 'package:ecommm/screens/home/widgets/search_bard.dart';
@@ -39,6 +40,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
                 },
               ),
+              const SizedBox(height: 20),
+              //Categories
+              const Categories(),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Special For you",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: MkasColor.primaryColor,
+                    ),
+                  )
+                ],
+              ),
+              //Shopping Items
+              GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                      itemCount: ,
+                  itemBuilder: (context, index) {
+                    return;
+                  })
             ],
           ),
         ),
