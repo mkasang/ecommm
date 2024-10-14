@@ -1,4 +1,7 @@
 import 'package:ecommm/constants.dart';
+import 'package:ecommm/screens/cart/cart_screen.dart';
+import 'package:ecommm/screens/favorite.dart';
+import 'package:ecommm/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class ButtomNavBar extends StatefulWidget {
@@ -10,6 +13,13 @@ class ButtomNavBar extends StatefulWidget {
 
 class _ButtomNavBarState extends State<ButtomNavBar> {
   int currentIndex = 2;
+  List screens = const [
+    Scaffold(),
+    Favorite(),
+    HomeScreen(),
+    CartScreen(),
+    Scaffold(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +27,6 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
         onPressed: () {
           setState(() {
             currentIndex = 2;
-            List screens = const [
-              Scaffold(),
-            ];
           });
         },
         shape: const CircleBorder(),
@@ -102,6 +109,7 @@ class _ButtomNavBarState extends State<ButtomNavBar> {
           ],
         ),
       ),
+      body: screens[currentIndex],
     );
   }
 }
