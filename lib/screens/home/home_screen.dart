@@ -1,5 +1,6 @@
 import 'package:ecommm/constants.dart';
 import 'package:ecommm/screens/home/widgets/home_app_bar.dart';
+import 'package:ecommm/screens/home/widgets/image_slider.dart';
 import 'package:ecommm/screens/home/widgets/search_bard.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 20),
               //search bar
               MkSearchBar(),
+              SizedBox(height: 20),
+              //Slider
+              ImageSlider(),
             ],
           ),
         ),
