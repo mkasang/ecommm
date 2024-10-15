@@ -1,6 +1,7 @@
 import 'package:ecommm/constants.dart';
 import 'package:ecommm/models/product.dart';
 import 'package:ecommm/screens/detail/detail_app_bar.dart';
+import 'package:ecommm/screens/detail/image_slider.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class DetailScreen extends StatefulWidget {
 }
 
 class _DetailScreenState extends State<DetailScreen> {
+  int currentImage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +23,14 @@ class _DetailScreenState extends State<DetailScreen> {
         children: [
           //back button share and favorite
           DetailAppBar(),
+
+          MkImageSlider(
+              onChange: (index) {
+                setState(() {
+                  currentImage = index;
+                });
+              },
+              image: widget.product.image),
           Text(widget.product.title)
         ],
       )),
