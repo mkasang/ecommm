@@ -8,6 +8,7 @@ class ItemsDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           product.title,
@@ -15,6 +16,19 @@ class ItemsDetails extends StatelessWidget {
             fontWeight: FontWeight.w800,
             fontSize: 25,
           ),
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              "\$ ${product.price}",
+              style: const TextStyle(
+                fontWeight: FontWeight.w800,
+                fontSize: 25,
+              ),
+            ),
+          ],
         )
       ],
     );

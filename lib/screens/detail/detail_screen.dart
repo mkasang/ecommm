@@ -2,6 +2,7 @@ import 'package:ecommm/constants.dart';
 import 'package:ecommm/models/product.dart';
 import 'package:ecommm/screens/detail/widgets/detail_app_bar.dart';
 import 'package:ecommm/screens/detail/widgets/image_slider.dart';
+import 'package:ecommm/screens/detail/widgets/items_details.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -67,6 +68,7 @@ class _DetailScreenState extends State<DetailScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //Product name, price, rating and seller
+                ItemsDetails(product: widget.product),
               ],
             ),
           )
