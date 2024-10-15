@@ -15,7 +15,7 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int currentImage = 0;
-  // int currentSlide = 0;
+  int currentColor = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,9 +69,59 @@ class _DetailScreenState extends State<DetailScreen> {
               children: [
                 //Product name, price, rating and seller
                 ItemsDetails(product: widget.product),
+                const SizedBox(height: 20),
+                const Text(
+                  "Color",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: List.generate(
+                    widget.product.colors.length,
+                    (index) => GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          currentColor = index;
+                        });
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: currentColor == index
+                                ? MkasColor.white
+                                : widget.product.colors[index],
+                            border: currentColor == index
+                                ? Border.all(
+                                    color: widget.product.colors[index])
+                                : null),
+                        padding: currentColor == index
+                            ? const EdgeInsets.all(2)
+                            : null,
+                        margin: const EdgeInsets.only(right: 10),
+                        child: Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: widget.product.colors[index],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
-          )
+          ),
+          const SizedBox(height: 20),
+          //description
+          
         ],
       )),
     );
