@@ -11,8 +11,15 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const DetailScreen()));
+        Navigator.push(
+            context,
+                
+                      
+                   
+            MaterialPageRoute(
+                builder: (context) => DetailScreen(
+                      product: product,
+                    )));
       },
       child: Stack(
         children: [

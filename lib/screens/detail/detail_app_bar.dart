@@ -12,7 +12,7 @@ class DetailAppBar extends StatelessWidget {
         children: [
           IconButton(
             style: IconButton.styleFrom(
-                backgroundColor: MkasColor.contentColor,
+                backgroundColor: MkasColor.white,
                 padding: const EdgeInsets.all(20)),
             onPressed: () {},
             icon: const Icon(Icons.arrow_back_ios),
@@ -20,7 +20,7 @@ class DetailAppBar extends StatelessWidget {
           const Spacer(),
           IconButton(
             style: IconButton.styleFrom(
-                backgroundColor: MkasColor.contentColor,
+                backgroundColor: MkasColor.white,
                 padding: const EdgeInsets.all(20)),
             onPressed: () {},
             icon: const Icon(Icons.share_outlined),
@@ -28,7 +28,7 @@ class DetailAppBar extends StatelessWidget {
           const SizedBox(width: 10),
           IconButton(
             style: IconButton.styleFrom(
-                backgroundColor: MkasColor.contentColor,
+                backgroundColor: MkasColor.white,
                 padding: const EdgeInsets.all(20)),
             onPressed: () {},
             icon: const Icon(Icons.favorite),
