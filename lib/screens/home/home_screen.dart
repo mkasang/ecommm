@@ -70,7 +70,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2),
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.78,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
                   itemCount: all.length,
                   itemBuilder: (context, index) {
                     return ProductCard(product: all[index]);
