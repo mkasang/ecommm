@@ -13,9 +13,6 @@ class ProductCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
             context,
-                
-                      
-                   
             MaterialPageRoute(
                 builder: (context) => DetailScreen(
                       product: product,
@@ -36,8 +33,8 @@ class ProductCard extends StatelessWidget {
                 Center(
                   child: Image.asset(
                     product.image,
-                    width: 130,
-                    height: 130,
+                    width: 120,
+                    height: 120,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -48,7 +45,7 @@ class ProductCard extends StatelessWidget {
                     product.title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 13,
                     ),
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'package:ecommm/constants.dart';
 import 'package:ecommm/models/product.dart';
+import 'package:ecommm/screens/detail/widgets/add_to_cart.dart';
 import 'package:ecommm/screens/detail/widgets/description.dart';
 import 'package:ecommm/screens/detail/widgets/detail_app_bar.dart';
 import 'package:ecommm/screens/detail/widgets/image_slider.dart';
@@ -21,13 +22,14 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MkasColor.contentColor,
+      //add to cart, icon and quantity
+      floatingActionButton: AddToCart(product: widget.product),
       body: SingleChildScrollView(
         child: SafeArea(
             child: Column(
           children: [
             //back button share and favorite
-            DetailAppBar(),
-
+            const DetailAppBar(),
             MkImageSlider(
                 onChange: (index) {
                   setState(() {
@@ -118,12 +120,15 @@ class _DetailScreenState extends State<DetailScreen> {
                       ),
                     ),
                   ),
+
+                  const SizedBox(height: 20),
+                  //description
+                  Description(
+                    description: widget.product.description,
+                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 20),
-            //description
-            Description(text: widget.product.title),
           ],
         )),
       ),
