@@ -51,14 +51,35 @@ class _AddToCartState extends State<AddToCart> {
                   ),
                   const SizedBox(width: 5),
                   IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.add,
-                        color: MkasColor.white,
-                      )),
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.add,
+                      color: MkasColor.white,
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                height: 55,
+                decoration: BoxDecoration(
+                  color: MkasColor.secondaryColor,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(horizontal: 50),
+                child: const Text(
+                  "Add To Cart",
+                  style: TextStyle(
+                    color: MkasColor.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
