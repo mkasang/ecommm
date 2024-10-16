@@ -29,13 +29,16 @@ class ProductCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 15),
+                const SizedBox(height: 5),
                 Center(
-                  child: Image.asset(
-                    product.image,
-                    width: 120,
-                    height: 120,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: product.image,
+                    child: Image.asset(
+                      product.image,
+                      width: 120,
+                      height: 120,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 15),
