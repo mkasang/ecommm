@@ -82,6 +82,28 @@ class ProductCard extends StatelessWidget {
               ],
             ),
           ),
+          Positioned(
+              child: Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: const BoxDecoration(
+                color: MkasColor.secondaryColor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Icon(
+                  Icons.favorite_border,
+                  color: MkasColor.white,
+                ),
+              ),
+            ),
+          )),
         ],
       ),
     );
