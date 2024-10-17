@@ -25,6 +25,10 @@ class _CartScreenState extends State<CartScreen> {
                 : provider.decrementQtn(index);
           });
         },
+        child: Icon(
+          icon,
+          size: 20,
+        ),
       );
     }
 
@@ -126,6 +130,7 @@ class _CartScreenState extends State<CartScreen> {
                           top: 35,
                           right: 35,
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               IconButton(
                                   onPressed: () {
@@ -136,7 +141,36 @@ class _CartScreenState extends State<CartScreen> {
                                     Icons.delete,
                                     color: MkasColor.red,
                                     size: 25,
-                                  ))
+                                  )),
+                              const SizedBox(height: 10),
+                              Container(
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: MkasColor.contentColor,
+                                  border: Border.all(
+                                    color: MkasColor.unselectColor,
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 10),
+                                    productQuantity(Icons.add, index),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      cartItems.quantity.toString(),
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: MkasColor.primaryColor,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    productQuantity(Icons.remove, index),
+                                    const SizedBox(width: 10),
+                                  ],
+                                ),
+                              ),
                             ],
                           ))
                     ],
