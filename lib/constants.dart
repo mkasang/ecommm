@@ -5,5 +5,6 @@ class MkasColor {
   static const secondaryColor = Color.fromRGBO(248, 118, 31, 0.992);
   static const contentColor = Color.fromARGB(255, 238, 238, 238);
   static const white = Colors.white;
+  static const red = Colors.red;
   static const unselectColor = Color.fromARGB(255, 189, 189, 189);
 }
