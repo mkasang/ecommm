@@ -1,5 +1,6 @@
 import 'package:ecommm/constants.dart';
 import 'package:ecommm/providers/cart_provider.dart';
+import 'package:ecommm/screens/cart/check_out.dart';
 import 'package:ecommm/screens/nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,8 @@ class _CartScreenState extends State<CartScreen> {
     }
 
     return Scaffold(
+      //total
+      bottomSheet: const CheckOutBox(),
       backgroundColor: MkasColor.contentColor,
       body: SafeArea(
         child: Column(
@@ -127,52 +130,53 @@ class _CartScreenState extends State<CartScreen> {
                         ),
                       ),
                       Positioned(
-                          top: 35,
-                          right: 35,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    finalList.removeAt(index);
-                                    setState(() {});
-                                  },
-                                  icon: const Icon(
-                                    Icons.delete,
-                                    color: MkasColor.red,
-                                    size: 25,
-                                  )),
-                              const SizedBox(height: 10),
-                              Container(
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  color: MkasColor.contentColor,
-                                  border: Border.all(
-                                    color: MkasColor.unselectColor,
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(20),
+                        top: 35,
+                        right: 35,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  finalList.removeAt(index);
+                                  setState(() {});
+                                },
+                                icon: const Icon(
+                                  Icons.delete,
+                                  color: MkasColor.red,
+                                  size: 25,
+                                )),
+                            const SizedBox(height: 10),
+                            Container(
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: MkasColor.contentColor,
+                                border: Border.all(
+                                  color: MkasColor.unselectColor,
+                                  width: 2,
                                 ),
-                                child: Row(
-                                  children: [
-                                    const SizedBox(width: 10),
-                                    productQuantity(Icons.add, index),
-                                    const SizedBox(width: 10),
-                                    Text(
-                                      cartItems.quantity.toString(),
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: MkasColor.primaryColor,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 10),
-                                    productQuantity(Icons.remove, index),
-                                    const SizedBox(width: 10),
-                                  ],
-                                ),
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                            ],
-                          ))
+                              child: Row(
+                                children: [
+                                  const SizedBox(width: 10),
+                                  productQuantity(Icons.add, index),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    cartItems.quantity.toString(),
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: MkasColor.primaryColor,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  productQuantity(Icons.remove, index),
+                                  const SizedBox(width: 10),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   );
                 },

@@ -17,10 +17,19 @@ class CartProvider extends ChangeNotifier {
   }
 
   incrementQtn(int index) => _cart[index].quantity++;
-  decrementQtn(int index) {
-    if (_cart[index].quantity > 1) {
-      _cart[index].quantity--;
+  decrementQtn(int index) => _cart[index].quantity--;
+  // {
+  //   if (_cart[index].quantity > 1) {
+  //     _cart[index].quantity--;
+  //   }
+  // }
+
+  totalPrice() {
+    double total1 = 0.0;
+    for (Product element in _cart) {
+      total1 += element.price * element.quantity;
     }
+    return total1;
   }
 
   static CartProvider of(
