@@ -1,11 +1,15 @@
 import 'package:ecommm/constants.dart';
+import 'package:ecommm/models/product.dart';
+import 'package:ecommm/providers/favorite_provider.dart';
 import 'package:flutter/material.dart';
 
 class DetailAppBar extends StatelessWidget {
-  const DetailAppBar({super.key});
+  final Product product;
+  const DetailAppBar({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavoriteProvider.of(context);
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
@@ -32,8 +36,16 @@ class DetailAppBar extends StatelessWidget {
             style: IconButton.styleFrom(
                 backgroundColor: MkasColor.white,
                 padding: const EdgeInsets.all(20)),
-            onPressed: () {},
-            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              provider.toggleFavorite(product);
+            },
+            icon: Icon(
+              provider.isExist(product)
+                  ? Icons.favorite
+                  : Icons.favorite_outline,
+              color: MkasColor.primaryColor,
+              size: 25,
+            ),
           ),
         ],
       ),
