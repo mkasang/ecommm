@@ -85,7 +85,7 @@ class CheckOutBox extends StatelessWidget {
               ),
               Text(
                 "\$ ${provider.totalPrice()}",
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),

@@ -1,6 +1,6 @@
 import 'package:ecommm/constants.dart';
 import 'package:ecommm/screens/cart/cart_screen.dart';
-import 'package:ecommm/screens/favorite.dart';
+import 'package:ecommm/screens/Favorite/favorite.dart';
 import 'package:ecommm/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
